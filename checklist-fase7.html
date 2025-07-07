@@ -1,4 +1,3 @@
-Checklist-fase7.html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -39,9 +38,6 @@ Checklist-fase7.html
       font-size: 14px;
       font-style: italic;
     }
-    $1
-    margin-bottom: 10px;
-  }
     footer {
       text-align: center;
       margin-top: 40px;
@@ -67,131 +63,129 @@ Checklist-fase7.html
       border-radius: 4px;
     }
     @media print {
-      $1, #pdf-btn { display: none; }
+      #pdf-btn, #whatsapp-btn, #clear-signature {
+        display: none;
+      }
     }
-    #pdf-btn {
-    display: block;
-    margin: 0 auto;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-$1
+    .btn {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body onload="inserirDataHora()">
-  <img src="/mnt/data/Imagem%20do%20WhatsApp%20de%202025-07-07%20%C3%A0(s)%2019.24.43_3cb632a6.jpg" alt="Logo GLOBE MOTORHOMES" class="logo">
+
+  <!-- Substitua a URL abaixo pela URL pública da sua logo -->
+  <img src="https://via.placeholder.com/100" alt="Logo GLOBE MOTORHOMES" class="logo">
+
   <h1>Checklist Fase 7</h1>
 
   <div class="section">
-  <div class="section-title">Elétrica</div>
-  <label><input type="checkbox"> Conferir aperto dos terminais das baterias</label>
-  <label><input type="checkbox"> Conferir extensão do veículo (15m + 15m)</label>
-  <label><input type="checkbox"> Conferir haste de aterramento</label>
-  <label><input type="checkbox"> Verificar adaptador de 20AMP</label>
-  <label><input type="checkbox"> Verificar se botão do aquecedor está funcionando</label>
-  <label><input type="checkbox"> Verificar dupla grade de ventilação da caixa elétrica</label>
-  <label><input type="checkbox"> Acrílico no painel elétrico e adesivo informativos</label>
-  <label><input type="checkbox"> Suporte Ar condicionado</label>
-  <label><input type="checkbox"> Testar funcionamento do ar condicionado com a tulha aberta e fechada</label>
-  <label><input type="checkbox"> Ligar o Ar condicionado MODO FRIO</label>
-  <label><input type="checkbox"> Ligar o Ar condicionado MODO QUENTE</label>
-  <label><input type="checkbox"> Encher o tanque de ÁGUA LIMPA e verificar se os MARCADORES estão marcando certo</label>
-  <label><input type="checkbox"> Encher o tanque de ÁGUA SERVIDA e verificar se os MARCADORES estão marcando certo</label>
-  <label><input type="checkbox"> Encher o tanque de DETRITOS com a mangueira e verificar se os MARCADORES estão marcando certo</label>
-  <label><input type="checkbox"> Testar chave das BOMBAS</label>
-  <label><input type="checkbox"> Testar chave de INTERLIGAÇÃO do veículo</label>
-  <label><input type="checkbox"> Chave reversora</label>
-  <label><input type="checkbox"> Testar todas as tomadas com furadeira</label>
-  <label><input type="checkbox"> Testar todos acendedores</label>
-  <label><input type="checkbox"> Testar TV'S</label>
-  <label><input type="checkbox"> Sincronizar TV's</label>
-  <label><input type="checkbox"> Testar Clarabóias</label>
-  <label><input type="checkbox"> Verificar se há LED queimado na fita</label>
-</div>
+    <div class="section-title">Elétrica</div>
+    <label><input type="checkbox"> Conferir aperto dos terminais das baterias</label>
+    <label><input type="checkbox"> Conferir extensão do veículo (15m + 15m)</label>
+    <label><input type="checkbox"> Conferir haste de aterramento</label>
+    <label><input type="checkbox"> Verificar adaptador de 20AMP</label>
+    <label><input type="checkbox"> Verificar se botão do aquecedor está funcionando</label>
+    <label><input type="checkbox"> Verificar dupla grade de ventilação da caixa elétrica</label>
+    <label><input type="checkbox"> Acrílico no painel elétrico e adesivo informativos</label>
+    <label><input type="checkbox"> Suporte Ar condicionado</label>
+    <label><input type="checkbox"> Testar funcionamento do ar condicionado com a tulha aberta e fechada</label>
+    <label><input type="checkbox"> Ligar o Ar condicionado MODO FRIO</label>
+    <label><input type="checkbox"> Ligar o Ar condicionado MODO QUENTE</label>
+    <label><input type="checkbox"> Encher o tanque de ÁGUA LIMPA e verificar se os MARCADORES estão marcando certo</label>
+    <label><input type="checkbox"> Encher o tanque de ÁGUA SERVIDA e verificar se os MARCADORES estão marcando certo</label>
+    <label><input type="checkbox"> Encher o tanque de DETRITOS com a mangueira e verificar se os MARCADORES estão marcando certo</label>
+    <label><input type="checkbox"> Testar chave das BOMBAS</label>
+    <label><input type="checkbox"> Testar chave de INTERLIGAÇÃO do veículo</label>
+    <label><input type="checkbox"> Chave reversora</label>
+    <label><input type="checkbox"> Testar todas as tomadas com furadeira</label>
+    <label><input type="checkbox"> Testar todos acendedores</label>
+    <label><input type="checkbox"> Testar TV'S</label>
+    <label><input type="checkbox"> Sincronizar TV's</label>
+    <label><input type="checkbox"> Testar Clarabóias</label>
+    <label><input type="checkbox"> Verificar se há LED queimado na fita</label>
+  </div>
 
-<div id="dataHora"></div>
+  <div id="dataHora"></div>
 
-<div id="signature-container">
-  <p><strong>Assinatura digital:</strong></p>
-  <canvas id="signature-pad"></canvas><br />
-  <button id="clear-signature" onclick="limparAssinatura()">Limpar assinatura</button>
-</div>
+  <div id="signature-container">
+    <p><strong>Assinatura digital:</strong></p>
+    <canvas id="signature-pad"></canvas><br />
+    <button id="clear-signature" onclick="limparAssinatura()">Limpar assinatura</button>
+  </div>
 
-$1
-<button id="pdf-btn" onclick="window.print()">Gerar PDF</button>
-  
+  <button id="pdf-btn" class="btn" onclick="window.print()">Gerar PDF</button>
+  <button id="whatsapp-btn" class="btn" onclick="enviarWhatsApp()">Enviar via WhatsApp</button>
+
   <footer>GLOBE MOTORHOMES</footer>
 
   <script>
     function inserirDataHora() {
-  const agora = new Date();
-  const dataHoraFormatada = agora.toLocaleDateString('pt-BR') + ' ' + agora.toLocaleTimeString('pt-BR');
-  document.getElementById('dataHora').innerText = `Checklist preenchido em: ${dataHoraFormatada}`;
-}
+      const agora = new Date();
+      const dataHoraFormatada = agora.toLocaleDateString('pt-BR') + ' ' + agora.toLocaleTimeString('pt-BR');
+      document.getElementById('dataHora').innerText = Checklist preenchido em: ${dataHoraFormatada};
+    }
 
-function enviarWhatsApp() {
-  let texto = '*Checklist Fase 7 - GLOBE MOTORHOMES*
-';
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-  checkboxes.forEach((checkbox) => {
-    texto += checkbox.checked ? `✅ ${checkbox.parentElement.textContent.trim()}
-` : `❌ ${checkbox.parentElement.textContent.trim()}
-`;
-  });
-  const dataHora = document.getElementById('dataHora').innerText;
-  texto += `
-${dataHora}`;
-  texto += "
-Assinatura digital anexada (visualizada localmente)";
-  const url = 'https://wa.me/?text=' + encodeURIComponent(texto);
-  window.open(url, '_blank');
-}
+    function enviarWhatsApp() {
+      let texto = 'Checklist Fase 7 - GLOBE MOTORHOMES\n\n';
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      checkboxes.forEach((checkbox) => {
+        texto += checkbox.checked ? ✅ ${checkbox.parentElement.textContent.trim()}\n : ❌ ${checkbox.parentElement.textContent.trim()}\n;
+      });
+      const dataHora = document.getElementById('dataHora').innerText;
+      texto += \n${dataHora};
+      texto += "\nAssinatura digital anexada (visualizada localmente)";
+      const url = 'https://wa.me/?text=' + encodeURIComponent(texto);
+      window.open(url, '_blank');
+    }
 
-const canvas = document.getElementById('signature-pad');
-const ctx = canvas.getContext('2d');
-let desenhando = false;
+    const canvas = document.getElementById('signature-pad');
+    const ctx = canvas.getContext('2d');
+    let desenhando = false;
 
-canvas.addEventListener('mousedown', () => { desenhando = true; });
-canvas.addEventListener('mouseup', () => { desenhando = false; ctx.beginPath(); });
-canvas.addEventListener('mousemove', desenhar);
+    canvas.addEventListener('mousedown', () => { desenhando = true; });
+    canvas.addEventListener('mouseup', () => { desenhando = false; ctx.beginPath(); });
+    canvas.addEventListener('mousemove', desenhar);
 
-function desenhar(event) {
-  if (!desenhando) return;
-  const rect = canvas.getBoundingClientRect();
-  ctx.lineWidth = 2;
-  ctx.lineCap = 'round';
-  ctx.strokeStyle = '#000';
-  ctx.lineTo(event.clientX - rect.left, event.clientY - rect.top);
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.moveTo(event.clientX - rect.left, event.clientY - rect.top);
-}
+    function desenhar(event) {
+      if (!desenhando) return;
+      const rect = canvas.getBoundingClientRect();
+      ctx.lineWidth = 2;
+      ctx.lineCap = 'round';
+      ctx.strokeStyle = '#000';
+      ctx.lineTo(event.clientX - rect.left, event.clientY - rect.top);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(event.clientX - rect.left, event.clientY - rect.top);
+    }
 
-function limparAssinatura() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-}
-  
-// Inclui assinatura no PDF
-window.onbeforeprint = function() {
-  const dataURL = canvas.toDataURL();
-  let img = document.createElement('img');
-  img.src = dataURL;
-  img.id = 'signature-image';
-  img.style.maxWidth = '300px';
-  img.style.display = 'block';
-  img.style.marginTop = '20px';
-  document.getElementById('signature-container').appendChild(img);
-};
+    function limparAssinatura() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
 
-window.onafterprint = function() {
-  const img = document.getElementById('signature-image');
-  if (img) img.remove();
-};
-</script>
+    window.onbeforeprint = function() {
+      const dataURL = canvas.toDataURL();
+      let img = document.createElement('img');
+      img.src = dataURL;
+      img.id = 'signature-image';
+      img.style.maxWidth = '300px';
+      img.style.display = 'block';
+      img.style.marginTop = '20px';
+      document.getElementById('signature-container').appendChild(img);
+    };
+
+    window.onafterprint = function() {
+      const img = document.getElementById('signature-image');
+      if (img) img.remove();
+    };
+  </script>
 </body>
 </html>
