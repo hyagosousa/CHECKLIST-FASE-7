@@ -131,17 +131,17 @@
     function inserirDataHora() {
       const agora = new Date();
       const dataHoraFormatada = agora.toLocaleDateString('pt-BR') + ' ' + agora.toLocaleTimeString('pt-BR');
-      document.getElementById('dataHora').innerText = Checklist preenchido em: ${dataHoraFormatada};
+      document.getElementById('dataHora').innerText = `Checklist preenchido em: ${dataHoraFormatada}`;
     }
 
     function enviarWhatsApp() {
       let texto = 'Checklist Fase 7 - GLOBE MOTORHOMES\n\n';
       const checkboxes = document.querySelectorAll('input[type="checkbox"]');
       checkboxes.forEach((checkbox) => {
-        texto += checkbox.checked ? ✅ ${checkbox.parentElement.textContent.trim()}\n : ❌ ${checkbox.parentElement.textContent.trim()}\n;
+        texto += checkbox.checked ? `✅ ${checkbox.parentElement.textContent.trim()}\n` : `❌ ${checkbox.parentElement.textContent.trim()}\n`;
       });
       const dataHora = document.getElementById('dataHora').innerText;
-      texto += \n${dataHora};
+      texto += `\n${dataHora}`;
       texto += "\nAssinatura digital anexada (visualizada localmente)";
       const url = 'https://wa.me/?text=' + encodeURIComponent(texto);
       window.open(url, '_blank');
@@ -149,6 +149,11 @@
 
     const canvas = document.getElementById('signature-pad');
     const ctx = canvas.getContext('2d');
+
+    // Ajusta tamanho real do canvas para evitar distorção
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+
     let desenhando = false;
 
     canvas.addEventListener('mousedown', () => { desenhando = true; });
@@ -189,3 +194,4 @@
   </script>
 </body>
 </html>
+
