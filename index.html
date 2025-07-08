@@ -262,5 +262,135 @@
     <label><input type="checkbox"><span>Limpar cinto de segurança a fita e a fêmea do cinto.</span></label>
   </details>
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checklist Fase 7</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin: 6px 0;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    input[type="checkbox"] {
+      margin-right: 8px;
+      cursor: pointer;
+    }
+    input[type="checkbox"]:checked + span {
+      text-decoration: line-through;
+      color: gray;
+    }
+    .section-title {
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    input[type="number"] {
+      margin-left: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Checklist Fase 7</h1>
+
+  <!-- Etapas anteriores de 1 a 17 devem ser incluídas aqui -->
+
+  <details>
+    <summary class="section-title">Etapa 18 - Medidas</summary>
+    <form>
+      <fieldset>
+        <legend>Medida tanque ÁGUA LIMPA:</legend>
+        <label><input type="radio" name="aguaLimpaMaterial" value="inox"> Inox</label>
+        <label><input type="radio" name="aguaLimpaMaterial" value="fibra"> Fibra</label>
+        <label>Litros: <input type="number" inputmode="decimal" name="aguaLimpaLitros" min="0" step="any" placeholder="Litros" style="width: 100px;"></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Medida tanque ÁGUA SERVIDA:</legend>
+        <label><input type="radio" name="aguaServidaMaterial" value="inox"> Inox</label>
+        <label><input type="radio" name="aguaServidaMaterial" value="fibra"> Fibra</label>
+        <label>Litros: <input type="number" inputmode="decimal" name="aguaServidaLitros" min="0" step="any" placeholder="Litros" style="width: 100px;"></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Medida tanque ÁGUA DETRITOS:</legend>
+        <label><input type="radio" name="aguaDetritosMaterial" value="inox"> Inox</label>
+        <label><input type="radio" name="aguaDetritosMaterial" value="fibra"> Fibra</label>
+        <label>Litros: <input type="number" inputmode="decimal" name="aguaDetritosLitros" min="0" step="any" placeholder="Litros" style="width: 100px;"></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Tamanho JANELA QUARTO LADO DIREITO:</legend>
+        <label><input type="radio" name="janelaQuartoDireitoTipo" value="open"> Open</label>
+        <label><input type="radio" name="janelaQuartoDireitoTipo" value="dmtc"> Dmtc</label>
+        <label><input type="radio" name="janelaQuartoDireitoTipo" value="rv"> RV</label>
+        <label><input type="radio" name="janelaQuartoDireitoTipo" value="vidro"> Vidro</label><br />
+        <label>Largura: <input type="number" inputmode="decimal" name="janelaQuartoDireitoLargura" placeholder="cm" style="width: 100px;"></label>
+        <label>Comprimento: <input type="number" inputmode="decimal" name="janelaQuartoDireitoComprimento" placeholder="cm" style="width: 100px;"></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Tamanho JANELA QUARTO LADO ESQUERDO:</legend>
+        <label><input type="radio" name="janelaQuartoEsquerdoTipo" value="open"> Open</label>
+        <label><input type="radio" name="janelaQuartoEsquerdoTipo" value="dmtc"> Dmtc</label>
+        <label><input type="radio" name="janelaQuartoEsquerdoTipo" value="rv"> RV</label>
+        <label><input type="radio" name="janelaQuartoEsquerdoTipo" value="vidro"> Vidro</label><br />
+        <label>Largura: <input type="number" inputmode="decimal" name="janelaQuartoEsquerdoLargura" placeholder="cm" style="width: 100px;"></label>
+        <label>Comprimento: <input type="number" inputmode="decimal" name="janelaQuartoEsquerdoComprimento" placeholder="cm" style="width: 100px;"></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Tamanho JANELA DINETE:</legend>
+        <label><input type="radio" name="janelaDineteTipo" value="open"> Open</label>
+        <label><input type="radio" name="janelaDineteTipo" value="dmtc"> Dmtc</label>
+        <label><input type="radio" name="janelaDineteTipo" value="rv"> RV</label>
+        <label><input type="radio" name="janelaDineteTipo" value="vidro"> Vidro</label><br />
+        <label>Largura: <input type="number" inputmode="decimal" name="janelaDineteLargura" placeholder="cm" style="width: 100px;"></label>
+        <label>Comprimento: <input type="number" inputmode="decimal" name="janelaDineteComprimento" placeholder="cm" style="width: 100px;"></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Tamanho JANELA COZINHA:</legend>
+        <label><input type="radio" name="janelaCozinhaTipo" value="open"> Open</label>
+        <label><input type="radio" name="janelaCozinhaTipo" value="dmtc"> Dmtc</label>
+        <label><input type="radio" name="janelaCozinhaTipo" value="rv"> RV</label>
+        <label><input type="radio" name="janelaCozinhaTipo" value="vidro"> Vidro</label><br />
+        <label>Largura: <input type="number" inputmode="decimal" name="janelaCozinhaLargura" placeholder="cm" style="width: 100px;"></label>
+        <label>Comprimento: <input type="number" inputmode="decimal" name="janelaCozinhaComprimento" placeholder="cm" style="width: 100px;"></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Tamanho da CAMA:</legend>
+        <label>Largura: <input type="number" inputmode="decimal" name="camaLargura" placeholder="cm" style="width: 100px;"></label>
+        <label>Comprimento: <input type="number" inputmode="decimal" name="camaComprimento" placeholder="cm" style="width: 100px;"></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Painéis solares:</legend>
+        <label>Quantidade: <input type="number" inputmode="numeric" name="painelSolarQtd" placeholder="Qtd" style="width: 100px;"></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Tamanho da CAMA DINETE EXPANDIDA:</legend>
+        <label>Largura: <input type="number" inputmode="decimal" name="camaDineteLargura" placeholder="cm" style="width: 100px;"></label>
+        <label>Comprimento: <input type="number" inputmode="decimal" name="camaDineteComprimento" placeholder="cm" style="width: 100px;"></label>
+      </fieldset>
+    </form>
+  </details>
+
 </body>
 </html>
+
