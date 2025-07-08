@@ -384,27 +384,6 @@
     </form>
   </details>
 
-  <details>
-  <summary class="section-title">Etapa 19 - Mobiliário</summary>
-  <label><input type="checkbox"><span>Verificar todas as travas dos armários e gaveta da dinete.</span></label>
-  <label><input type="checkbox"><span>Conferir trincos para segurar a expansão da dinete.</span></label>
-  <label><input type="checkbox"><span>Conferir chassi cabine trincos da extensão da alcova.</span></label>
-  <label><input type="checkbox"><span>Verificar acabamento interno dos armários.</span></label>
-  <label><input type="checkbox"><span>Verificar caixinha da válvula do tanque de detrito</span></label>
-  <label><input type="checkbox"><span>Puxador das portas de interligação da sala e banheiros.</span></label>
-  <label><input type="checkbox"><span>Acabamento de fiação dentro dos armários.</span></label>
-  <label><input type="checkbox"><span>Verificar a trava do encosto da dinete.</span></label>
-  <label><input type="checkbox"><span>Abrir e fechar todas as portas dos aéreos testando amortecedores.</span></label>
-  <label><input type="checkbox"><span>Passar a mão no interior de todos movéis testando asperezas.</span></label>
-  <label><input type="checkbox"><span>Verificar se todos os parafusos tem tampa furo.</span></label>
-  <label><input type="checkbox"><span>Conferir trancas de portas.</span></label>
-  <label><input type="checkbox"><span>Conferir molduras de acabamentos.</span></label>
-  <label><input type="checkbox"><span>Testar a mesa da dinete e testar as almofadas para ver se encaixam.</span></label>
-  <label><input type="checkbox"><span>Abrir gaveta embaixo da dinete e verificar se está seladas.</span></label>
-  <label><input type="checkbox"><span>Abrir e fechar todas as portas testando push lock.</span></label>
-  <label><input type="checkbox"><span>Verificar se o gavetão da dinete não está agarrando no chão.</span></label>
-  <label><input type="checkbox"><span>Verficar trava adicional do gavetão abaixo da dinete.</span></label>
-</details>
 
 
 <details>
@@ -486,117 +465,89 @@
 
 </details>
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Checklist para WhatsApp</title>
   <style>
-  #btnWhatsApp {
-    display: inline-flex;
-    align-items: center;
-    background-color: #25D366;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    padding: 10px 16px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    gap: 8px;
-    transition: background-color 0.3s ease;
-  }
-  #btnWhatsApp:hover {
-    background-color: #1ebe57;
-  }
-  #btnWhatsApp svg {
-    width: 24px;
-    height: 24px;
-    fill: white;
-  }
-</style>
-
-<button id="btnWhatsApp" type="button" aria-label="Enviar checklist via WhatsApp">
-  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-    <path d="M20.52 3.48A11.845 11.845 0 0 0 12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.137 1.6 5.92L0 24l6.27-1.637a11.895 11.895 0 0 0 5.73 1.48c6.627 0 12-5.373 12-12 0-3.22-1.256-6.243-3.48-8.364zM12 21.75a9.72 9.72 0 0 1-5.144-1.415l-.37-.22-3.717.97.99-3.61-.24-.37A9.717 9.717 0 0 1 2.25 12C2.25 7.005 6.755 2.5 12 2.5S21.75 7.005 21.75 12 17.245 21.75 12 21.75zm5.573-7.804c-.254-.127-1.5-.74-1.732-.824-.232-.086-.4-.127-.57.127-.17.255-.658.825-.807.994-.148.17-.297.191-.552.064-.254-.128-1.074-.396-2.045-1.263-.756-.673-1.268-1.503-1.418-1.758-.148-.256-.016-.394.112-.52.114-.113.254-.296.382-.444.128-.148.17-.255.255-.425.085-.17.042-.318-.02-.445-.063-.127-.57-1.375-.78-1.883-.205-.494-.413-.426-.57-.434l-.49-.008c-.17 0-.445.063-.678.318-.232.255-.888.87-.888 2.117 0 1.247.91 2.453 1.036 2.62.127.17 1.792 2.735 4.34 3.835.606.261 1.078.417 1.447.532.608.191 1.16.164 1.598.1.487-.07 1.5-.61 1.713-1.2.212-.59.212-1.096.148-1.2-.063-.106-.232-.17-.486-.296z"/>
-  </svg>
-  Enviar checklist via WhatsApp
-</button>
-
-<script>
-  document.getElementById('btnWhatsApp').addEventListener('click', () => {
-    const checkedItems = [...document.querySelectorAll('input[type="checkbox"]:checked')];
-    if (checkedItems.length === 0) {
-      alert('Nenhum item marcado para enviar!');
-      return;
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
     }
-    let message = 'Checklist preenchido:%0A';
-    checkedItems.forEach((checkbox) => {
-      const label = checkbox.nextElementSibling ? checkbox.nextElementSibling.innerText : '';
-      message += `- ${label}%0A`;
-    });
-    const whatsappUrl = `https://wa.me/?text=${message}`;
-    window.open(whatsappUrl, '_blank');
-  });
-</script>
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
 
-  <style>
-  #btnWhatsApp {
-    display: inline-flex;
-    align-items: center;
-    background-color: #25D366;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    padding: 10px 16px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    gap: 8px;
-    transition: background-color 0.3s ease;
-  }
-  #btnWhatsApp:hover {
-    background-color: #1ebe57;
-  }
-  #btnWhatsApp svg {
-    width: 24px;
-    height: 24px;
-    fill: white;
-  }
+<h2>Checklist</h2>
 
-    <!-- Botão para baixar PDF -->
-<button id="btnDownloadPdf" style="margin: 20px; padding: 10px 16px; font-size: 16px; cursor: pointer;">
-  Baixar checklist em PDF
-</button>
+<form id="checklistForm">
+  <label>
+    <input type="checkbox" name="item1" />
+    Item 1 - Conformidade (Sim / Não)
+  </label>
 
-<!-- Biblioteca jsPDF (CDN) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <label>
+    <input type="checkbox" name="item2" />
+    Item 2 - Funcionamento do equipamento (Sim / Não)
+  </label>
+
+  <label>
+    Observações:
+    <br />
+    <textarea name="obs" rows="4" cols="40" placeholder="Escreva algo aqui..."></textarea>
+  </label>
+
+  <button type="button" onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
+</form>
 
 <script>
-  const { jsPDF } = window.jspdf;
+function enviarWhatsApp() {
+  const form = document.getElementById('checklistForm');
 
-  document.getElementById('btnDownloadPdf').addEventListener('click', () => {
-    const doc = new jsPDF();
+  // Função para traduzir checkbox em emoji
+  function emojiSimNao(checked) {
+    return checked ? '✅' : '❌';
+  }
 
-    // Seleciona o conteúdo da checklist para pegar o texto
-    const checklistContent = document.body.innerText;
+  // Pega os valores dos checkboxes
+  const item1 = form.item1.checked;
+  const item2 = form.item2.checked;
+  const obs = form.obs.value.trim();
 
-    // Configurações básicas do texto no PDF
-    const pageWidth = doc.internal.pageSize.getWidth();
-    const margin = 10;
-    const maxLineWidth = pageWidth - margin * 2;
-    const lineHeight = 10;
-    let yPos = 10;
+  // Monta a mensagem com emojis
+  let mensagem = "📋 *Checklist de inspeção*\n\n";
+  mensagem += `Item 1 - Conformidade: ${emojiSimNao(item1)}\n`;
+  mensagem += `Item 2 - Funcionamento do equipamento: ${emojiSimNao(item2)}\n`;
+  mensagem += `Observações: ${obs || 'Nenhuma'}\n`;
 
-    // Quebrar o texto em linhas para caber no PDF
-    const splitText = doc.splitTextToSize(checklistContent, maxLineWidth);
+  // Codifica a mensagem para URL
+  const mensagemEncoded = encodeURIComponent(mensagem);
 
-    splitText.forEach(line => {
-      if (yPos + lineHeight > doc.internal.pageSize.getHeight()) {
-        doc.addPage();
-        yPos = 10;
-      }
-      doc.text(margin, yPos, line);
-      yPos += lineHeight;
-    });
+  // Número do telefone, pode deixar vazio para abrir sem número
+  const telefone = ""; // ex: 5511999999999
 
-    doc.save('checklist_motorhome.pdf');
-  });
+  // Link do WhatsApp
+  let url = "";
+  if(telefone) {
+    url = `https://api.whatsapp.com/send?phone=${telefone}&text=${mensagemEncoded}`;
+  } else {
+    url = `https://api.whatsapp.com/send?text=${mensagemEncoded}`;
+  }
+
+  // Abre o WhatsApp em nova aba
+  window.open(url, '_blank');
+}
 </script>
+
+</body>
+</html>
+
+
+  
 
 
