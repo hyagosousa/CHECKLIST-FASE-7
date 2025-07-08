@@ -462,3 +462,35 @@
   <label><input type="checkbox"><span>Conferir acessórios do veículo, tais como, CHAVE DE RODA, TRIÂNGULO E MACACO.</span></label>
 
 </details>
+
+  <button id="btnWhatsApp" style="margin-top:20px; padding:10px 20px; font-size:16px; cursor:pointer;">
+  Enviar checklist via WhatsApp
+</button>
+
+<script>
+  document.getElementById('btnWhatsApp').addEventListener('click', () => {
+    // Pega todos os checkbox marcados
+    const checkedItems = [...document.querySelectorAll('input[type="checkbox"]:checked')];
+    if (checkedItems.length === 0) {
+      alert('Nenhum item marcado para enviar!');
+      return;
+    }
+
+    // Monta a mensagem com os textos dos itens marcados
+    let message = 'Checklist preenchido:\n';
+    checkedItems.forEach((checkbox, i) => {
+      const label = checkbox.nextElementSibling ? checkbox.nextElementSibling.innerText : '';
+      message += `- ${label}\n`;
+    });
+
+    // Codifica a mensagem para URL
+    const encodedMessage = encodeURIComponent(message);
+
+    // URL para abrir o WhatsApp (web ou app)
+    const whatsappUrl = `https://wa.me/?text=${encodedMessage}`;
+
+    // Abre o WhatsApp numa nova aba (ou app no celular)
+    window.open(whatsappUrl, '_blank');
+  });
+</script>
+
