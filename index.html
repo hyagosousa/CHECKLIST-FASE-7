@@ -463,34 +463,53 @@
 
 </details>
 
-  <button id="btnWhatsApp" style="margin-top:20px; padding:10px 20px; font-size:16px; cursor:pointer;">
+  <style>
+  #btnWhatsApp {
+    display: inline-flex;
+    align-items: center;
+    background-color: #25D366;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+  }
+  #btnWhatsApp:hover {
+    background-color: #1ebe57;
+  }
+  #btnWhatsApp svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+  }
+</style>
+
+<button id="btnWhatsApp" type="button" aria-label="Enviar checklist via WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M20.52 3.48A11.845 11.845 0 0 0 12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.137 1.6 5.92L0 24l6.27-1.637a11.895 11.895 0 0 0 5.73 1.48c6.627 0 12-5.373 12-12 0-3.22-1.256-6.243-3.48-8.364zM12 21.75a9.72 9.72 0 0 1-5.144-1.415l-.37-.22-3.717.97.99-3.61-.24-.37A9.717 9.717 0 0 1 2.25 12C2.25 7.005 6.755 2.5 12 2.5S21.75 7.005 21.75 12 17.245 21.75 12 21.75zm5.573-7.804c-.254-.127-1.5-.74-1.732-.824-.232-.086-.4-.127-.57.127-.17.255-.658.825-.807.994-.148.17-.297.191-.552.064-.254-.128-1.074-.396-2.045-1.263-.756-.673-1.268-1.503-1.418-1.758-.148-.256-.016-.394.112-.52.114-.113.254-.296.382-.444.128-.148.17-.255.255-.425.085-.17.042-.318-.02-.445-.063-.127-.57-1.375-.78-1.883-.205-.494-.413-.426-.57-.434l-.49-.008c-.17 0-.445.063-.678.318-.232.255-.888.87-.888 2.117 0 1.247.91 2.453 1.036 2.62.127.17 1.792 2.735 4.34 3.835.606.261 1.078.417 1.447.532.608.191 1.16.164 1.598.1.487-.07 1.5-.61 1.713-1.2.212-.59.212-1.096.148-1.2-.063-.106-.232-.17-.486-.296z"/>
+  </svg>
   Enviar checklist via WhatsApp
 </button>
 
 <script>
   document.getElementById('btnWhatsApp').addEventListener('click', () => {
-    // Pega todos os checkbox marcados
     const checkedItems = [...document.querySelectorAll('input[type="checkbox"]:checked')];
     if (checkedItems.length === 0) {
       alert('Nenhum item marcado para enviar!');
       return;
     }
-
-    // Monta a mensagem com os textos dos itens marcados
-    let message = 'Checklist preenchido:\n';
-    checkedItems.forEach((checkbox, i) => {
+    let message = 'Checklist preenchido:%0A';
+    checkedItems.forEach((checkbox) => {
       const label = checkbox.nextElementSibling ? checkbox.nextElementSibling.innerText : '';
-      message += `- ${label}\n`;
+      message += `- ${label}%0A`;
     });
-
-    // Codifica a mensagem para URL
-    const encodedMessage = encodeURIComponent(message);
-
-    // URL para abrir o WhatsApp (web ou app)
-    const whatsappUrl = `https://wa.me/?text=${encodedMessage}`;
-
-    // Abre o WhatsApp numa nova aba (ou app no celular)
+    const whatsappUrl = `https://wa.me/?text=${message}`;
     window.open(whatsappUrl, '_blank');
   });
 </script>
+
 
