@@ -466,46 +466,6 @@
 </details>
 
 
-<button onclick="enviarWhatsApp()">Enviar Checklist por WhatsApp</button>
-
-<script>
-function enviarWhatsApp() {
-  // Array com os nomes dos campos e o texto do item
-  const itens = [
-    { name: 'item1', texto: 'Checar instalação elétrica' },
-    { name: 'item2', texto: 'Verificar vazamentos' },
-    // adicione todos seus itens aqui
-  ];
-
-  let mensagem = '✅ Checklist de Inspeção:\n\n';
-
-  itens.forEach(item => {
-    // pega o valor selecionado do item (sim ou nao)
-    const selecionado = document.querySelector(`input[name="${item.name}"]:checked`);
-    if (selecionado) {
-      const valor = selecionado.value.toLowerCase();
-      if (valor === 'sim') {
-        mensagem += `✅ ${item.texto}\n`;
-      } else if (valor === 'nao') {
-        mensagem += `❌ ${item.texto}\n`;
-      }
-    } else {
-      mensagem += `⚪ ${item.texto} (não marcado)\n`; // se não marcou nada
-    }
-  });
-
-  // Codifica a mensagem para URL
-  const textoCodificado = encodeURIComponent(mensagem);
-  // Número do WhatsApp para enviar, pode deixar vazio para o usuário escolher contato
-  const telefone = ''; 
-  // URL para abrir o WhatsApp Web ou app móvel
-  const url = `https://wa.me/${telefone}?text=${textoCodificado}`;
-
-  // Abre nova aba com o WhatsApp para enviar a mensagem
-  window.open(url, '_blank');
-}
-</script>
-
   
 
 
