@@ -536,4 +536,44 @@
     fill: white;
   }
 
+    <!-- Botão para baixar PDF -->
+<button id="btnDownloadPdf" style="margin: 20px; padding: 10px 16px; font-size: 16px; cursor: pointer;">
+  Baixar checklist em PDF
+</button>
+
+<!-- Biblioteca jsPDF (CDN) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script>
+  const { jsPDF } = window.jspdf;
+
+  document.getElementById('btnDownloadPdf').addEventListener('click', () => {
+    const doc = new jsPDF();
+
+    // Seleciona o conteúdo da checklist para pegar o texto
+    const checklistContent = document.body.innerText;
+
+    // Configurações básicas do texto no PDF
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const margin = 10;
+    const maxLineWidth = pageWidth - margin * 2;
+    const lineHeight = 10;
+    let yPos = 10;
+
+    // Quebrar o texto em linhas para caber no PDF
+    const splitText = doc.splitTextToSize(checklistContent, maxLineWidth);
+
+    splitText.forEach(line => {
+      if (yPos + lineHeight > doc.internal.pageSize.getHeight()) {
+        doc.addPage();
+        yPos = 10;
+      }
+      doc.text(margin, yPos, line);
+      yPos += lineHeight;
+    });
+
+    doc.save('checklist_motorhome.pdf');
+  });
+</script>
+
 
