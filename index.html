@@ -465,6 +465,98 @@
 
 </details>
 
+   <button onclick="limparChecklist()">Limpar Checklist</button>
+  <button onclick="gerarPDF()">📥 Baixar PDF do Checklist</button>
+  <button onclick="enviarWhatsApp()">📤 Enviar via WhatsApp</button>
+
+  <div id="rodape">
+    Empresa: <strong>GLOBE MOTORHOMES</strong>
+  </div>
+
+  <!-- jsPDF CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <script>
+    const { jsPDF } = window.jspdf;
+
+    function toggleCheck(cb) {
+      if (cb.checked) {
+        cb.parentElement.classList.add('checked');
+      } else {
+        cb.parentElement.classList.remove('checked');
+      }
+    }
+
+    function limparChecklist() {
+      document.querySelectorAll('#checklist input[type="checkbox"]').forEach(cb => {
+        cb.checked = false;
+        cb.parentElement.classList.remove('checked');
+      });
+      document.getElementById('cliente').value = '';
+      document.getElementById('responsavel').value = '';
+    }
+
+    function gerarPDF() {
+      const doc = new jsPDF();
+      const cliente = document.getElementById('cliente').value || '[Sem nome]';
+      const responsavel = document.getElementById('responsavel').value || '[Não informado]';
+      const agora = new Date();
+      const dataHora = agora.toLocaleString('pt-BR', { hour12: false });
+
+      doc.setFontSize(18);
+      doc.text("Checklist Instalação Elétrica", 105, 20, null, null, "center");
+
+      doc.setFontSize(12);
+      doc.text(`Cliente: ${cliente}`, 20, 40);
+      doc.text(`Data/Hora: ${dataHora}`, 20, 50);
+      doc.text("Itens:", 20, 60);
+
+      const itens = document.querySelectorAll('#checklist li');
+      let y = 70;
+      itens.forEach((li) => {
+        const cb = li.querySelector('input[type="checkbox"]');
+        const status = cb.checked ? "SIM" : "NÃO";
+        const texto = `- ${li.textContent.trim()}: ${status}`;
+        doc.text(texto, 25, y);
+        y += 10;
+        if (y > 280) {
+          doc.addPage();
+          y = 20;
+        }
+      });
+
+      doc.text(`Responsável pelo checklist: ${responsavel}`, 20, y + 10);
+      doc.text("Empresa: GLOBE MOTORHOMES", 20, y + 20);
+
+      doc.save(`Checklist_${cliente.replace(/\s+/g, "_")}.pdf`);
+    }
+
+    function enviarWhatsApp() {
+      const cliente = document.getElementById('cliente').value || '[Sem nome]';
+      const responsavel = document.getElementById('responsavel').value || '[Não informado]';
+      const agora = new Date();
+      const dataHora = agora.toLocaleString('pt-BR', { hour12: false });
+
+      let mensagem = `📋 *Checklist de Instalação Elétrica*\n\n`;
+      mensagem += `👤 *Cliente:* ${cliente}\n`;
+      mensagem += `🧰 *Responsável:* ${responsavel}\n`;
+      mensagem += `📅 *Data/Hora:* ${dataHora}\n\n`;
+      mensagem += `🔌 *Itens Verificados:*\n`;
+
+      const itens = document.querySelectorAll('#checklist li');
+      itens.forEach((li) => {
+        const cb = li.querySelector('input[type="checkbox"]');
+        const status = cb.checked ? "✅" : "❌";
+        const texto = li.textContent.trim();
+        mensagem += `${status} ${texto}\n`;
+      });
+
+      mensagem += `\n🚐 *Empresa: GLOBE MOTORHOMES*`;
+
+      const url = `https://wa.me/?text=${encodeURIComponent(mensagem)}`;
+      window.open(url, '_blank');
+    }
+  </script>
 
   
 
