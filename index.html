@@ -465,88 +465,46 @@
 
 </details>
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <title>Checklist para WhatsApp</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-    label {
-      display: block;
-      margin-bottom: 10px;
-    }
-  </style>
-</head>
-<body>
 
-<h2>Checklist</h2>
-
-<form id="checklistForm">
-  <label>
-    <input type="checkbox" name="item1" />
-    Item 1 - Conformidade (Sim / Não)
-  </label>
-
-  <label>
-    <input type="checkbox" name="item2" />
-    Item 2 - Funcionamento do equipamento (Sim / Não)
-  </label>
-
-  <label>
-    Observações:
-    <br />
-    <textarea name="obs" rows="4" cols="40" placeholder="Escreva algo aqui..."></textarea>
-  </label>
-
-  <button type="button" onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
-</form>
+<button onclick="enviarWhatsApp()">Enviar Checklist por WhatsApp</button>
 
 <script>
 function enviarWhatsApp() {
-  const form = document.getElementById('checklistForm');
+  // Array com os nomes dos campos e o texto do item
+  const itens = [
+    { name: 'item1', texto: 'Checar instalação elétrica' },
+    { name: 'item2', texto: 'Verificar vazamentos' },
+    // adicione todos seus itens aqui
+  ];
 
-  // Função para traduzir checkbox em emoji
-  function emojiSimNao(checked) {
-    return checked ? '✅' : '❌';
-  }
+  let mensagem = '✅ Checklist de Inspeção:\n\n';
 
-  // Pega os valores dos checkboxes
-  const item1 = form.item1.checked;
-  const item2 = form.item2.checked;
-  const obs = form.obs.value.trim();
-
-  // Monta a mensagem com emojis
-  let mensagem = "📋 *Checklist de inspeção*\n\n";
-  mensagem += `Item 1 - Conformidade: ${emojiSimNao(item1)}\n`;
-  mensagem += `Item 2 - Funcionamento do equipamento: ${emojiSimNao(item2)}\n`;
-  mensagem += `Observações: ${obs || 'Nenhuma'}\n`;
+  itens.forEach(item => {
+    // pega o valor selecionado do item (sim ou nao)
+    const selecionado = document.querySelector(`input[name="${item.name}"]:checked`);
+    if (selecionado) {
+      const valor = selecionado.value.toLowerCase();
+      if (valor === 'sim') {
+        mensagem += `✅ ${item.texto}\n`;
+      } else if (valor === 'nao') {
+        mensagem += `❌ ${item.texto}\n`;
+      }
+    } else {
+      mensagem += `⚪ ${item.texto} (não marcado)\n`; // se não marcou nada
+    }
+  });
 
   // Codifica a mensagem para URL
-  const mensagemEncoded = encodeURIComponent(mensagem);
+  const textoCodificado = encodeURIComponent(mensagem);
+  // Número do WhatsApp para enviar, pode deixar vazio para o usuário escolher contato
+  const telefone = ''; 
+  // URL para abrir o WhatsApp Web ou app móvel
+  const url = `https://wa.me/${telefone}?text=${textoCodificado}`;
 
-  // Número do telefone, pode deixar vazio para abrir sem número
-  const telefone = ""; // ex: 5511999999999
-
-  // Link do WhatsApp
-  let url = "";
-  if(telefone) {
-    url = `https://api.whatsapp.com/send?phone=${telefone}&text=${mensagemEncoded}`;
-  } else {
-    url = `https://api.whatsapp.com/send?text=${mensagemEncoded}`;
-  }
-
-  // Abre o WhatsApp em nova aba
+  // Abre nova aba com o WhatsApp para enviar a mensagem
   window.open(url, '_blank');
 }
 </script>
-
-</body>
-</html>
-
 
   
 
